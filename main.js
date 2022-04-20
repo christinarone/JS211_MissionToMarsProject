@@ -10,11 +10,37 @@ const jobTypes = {
 };
 
 // Your code will go here
+class CrewMember{
+  constructor(name,job,specialSkill){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
 
+  enterShip = (ship) => {
+    ship.crew.push(this)
+    this.ship = ship;
+  }
+}
 
+class Ship{
+  constructor(name,type,ability,crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+  missionStatement = () => {
+    if (this.crew == 0) return "Can't perform a mission yet."
+    else return this.ability
+    
+  }
+}
 
+// const cesar = new CrewMember('cesar', 'coding', 'debugging')
 
-
+// console.log(cesar.job)
 
 
 // Begin by reading the tests and building a function that will full each one.
